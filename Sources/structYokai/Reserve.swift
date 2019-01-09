@@ -88,7 +88,7 @@ public struct Reserve : ReserveProtocol{
         return ItReserve(r : self)
     }
 
-    func makeIterator() -> ItReserve {
+    public func makeIterator() -> ItReserve {
         
         return makeItReserve()
 

@@ -100,7 +100,7 @@ public struct MainJoueur : MainJoueurProtocol{
     func makeItMainJoueur() -> ItMainJoueur {
         return ItMainJoueur(mainJ : self)
     }
-    func makeIterator()-> ItMainJoueur{
+    public func makeIterator()-> ItMainJoueur{
         return makeItMainJoueur()
     }
 }
