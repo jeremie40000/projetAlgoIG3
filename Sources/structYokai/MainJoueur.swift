@@ -12,7 +12,7 @@ enum MainJoueurError : Error{
     case invalidArgument
 }
 
-struct MainJoueur : MainJoueurProtocol{
+public struct MainJoueur : MainJoueurProtocol{
     var tab : [Piece]
     
     //init: -> MainJoueur

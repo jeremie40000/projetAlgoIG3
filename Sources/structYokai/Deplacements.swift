@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Deplacements : DeplacementsProtocol {
+public struct Deplacements : DeplacementsProtocol {
     
     var tab = [Bool](repeating: false, count: 8)
     

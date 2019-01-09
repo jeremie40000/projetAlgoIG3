@@ -1,6 +1,6 @@
 //Réserve est une collection de Pièces
 //Cette collection peut être parcourue par 1 itérateurs.
-struct Reserve : ReserveProtocol{
+public struct Reserve : ReserveProtocol{
     //associatedtype IteratorReserve : IteratorProtocol where IteratorReserve.Element == Piece
     
     var tabRes = [Piece?](repeating: nil, count: 6) //tableau initialise a vide de taille 6 pour les 6 piece potentiellement capturable

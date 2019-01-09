@@ -2,7 +2,7 @@ enum PieceError : Error {
     case invalidArgument
 }
 
-struct Piece : PieceProtocol  {
+public struct Piece : PieceProtocol  {
 	
     var x : Int?
     var y : Int?

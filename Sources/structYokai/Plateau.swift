@@ -3,7 +3,7 @@ enum PlateauError : Error {
 	case argumentInvalide
 }
 
-struct Plateau : PlateauProtocol{
+public struct Plateau : PlateauProtocol{
 
 	var j1 : Joueur
 	var j2 : Joueur
