@@ -1,0 +1,92 @@
+enum JoueurError : Error {
+	case MauvaisNum
+	case ReserveNonVide
+	case MainJoueurNonRemplie
+}
+
+struct Joueur : JoueurProtocol{
+
+	var res : Reserve
+	var mainJ : MainJoueur
+	var num : Int
+	var nom : String
+	//init : Int x String -> Joueur
+	//Creer un Joueur au début du Jeu
+	//Pre : Int doit être égale à 1 ou 2 (pour Joueur 1 ou Joueur 2)
+	//Pre : String est le nom du Joueur 
+	//Post : Creer la Reserve qui doit être vide
+	//Post : La MainJoueur doit être remplie des Pieces initiales en fonction du Int (1 ou 2)
+	//Post : Joueur initialisé pour le début de la partie (2 cas différents en fonction du Int)
+	init(Num: Int, NomJ: String) throws {
+		num = Num
+		nom = NomJ
+		guard (Num != 1 && Num != 2) else {
+			throw JoueurError.MauvaisNum
+		}
+		res = Reserve()
+		guard !res.ReserveEstVide() else {
+			throw JoueurError.ReserveNonVide
+		}
+		mainJ = MainJoueur()
+		
+
+		var deplacementKodama : Deplacements = Deplacements()
+		deplacementKodama = try! deplacementKodama.InitialiserKodama()
+		var deplacementKoropokkuru : Deplacements = Deplacements()
+		deplacementKoropokkuru = try! deplacementKoropokkuru.InitialiserKoropokkuru()
+		var deplacementKitsune : Deplacements = Deplacements()
+		deplacementKitsune = try! deplacementKitsune.InitialiserKitsune()
+		var deplacementTanuki : Deplacements = Deplacements()
+		deplacementTanuki = try! deplacementTanuki.InitialiserTanuki()
+
+		let kodoma : Piece = try! Piece(nom : "kodoma\(num)", D : deplacementKodama)
+		let koropokkuru : Piece = try! Piece(nom : "koropokkuru\(num)", D : deplacementKoropokkuru)
+		let kitsune : Piece = try! Piece(nom : "kitsune\(num)", D : deplacementKitsune)
+		let tanuki : Piece = try! Piece(nom : "tanuki\(num)", D : deplacementTanuki)
+
+		do{
+			try mainJ.AjouterMainJoueur(P : kodoma)
+			try mainJ.AjouterMainJoueur(P : koropokkuru)
+			try mainJ.AjouterMainJoueur(P : kitsune)
+			try mainJ.AjouterMainJoueur(P : tanuki)
+			}catch{
+
+			}
+		
+		}
+
+
+	//Reserve : Joueur -> Reserve
+	//Renvoie la Reserve d'un Joueur
+	//Post : Reserve
+	func getReserve() -> Reserve {
+		return res
+
+	}
+
+	//MainJoueur : Joueur -> MainJoueur
+	//Renvoie la MainJoueur d'un Joueur
+	//Post : MainJoueur
+	func getMainJoueur() -> MainJoueur {
+		return mainJ
+
+	}
+
+	//NomJoueur : Joueur -> String
+	//Renvoie le Nom d'un Joueur
+	//Post : String
+	func NomJoueur() -> String {
+		return nom
+
+	}
+
+	//ModifJoueur : Joueur x Reserve x MainJoueur -> Joueur
+	//Modifie Un Joueur, change sa MainJoueur et sa Reserve 
+	//Post : Joueur avec sa MainJoueur et sa Reserve modifié
+	@discardableResult
+	mutating func ModifJoueur(R: Reserve, M: MainJoueur) -> Joueur {
+		self.res = R
+		self.mainJ = M
+		return self
+	}
+}
