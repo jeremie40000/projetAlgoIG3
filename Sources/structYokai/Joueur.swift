@@ -4,7 +4,7 @@ enum JoueurError : Error {
 	case MainJoueurNonRemplie
 }
 
-struct Joueur : JoueurProtocol{
+public struct Joueur : JoueurProtocol{
 
 	var res : Reserve
 	var mainJ : MainJoueur
