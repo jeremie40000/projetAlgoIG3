@@ -21,10 +21,12 @@ public struct Joueur : JoueurProtocol{
 		num = Num
 		nom = NomJ
 		if (Num != 1 || Num != 2) {
+			print("erreur 1")
 			throw JoueurError.MauvaisNum
 		}
 		res = Reserve()
 		if !res.ReserveEstVide() {
+			print("erreur 2")
 			throw JoueurError.ReserveNonVide
 		}
 		mainJ = MainJoueur()
