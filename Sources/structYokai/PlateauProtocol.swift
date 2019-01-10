@@ -7,7 +7,7 @@ protocol PlateauProtocol  {
 	//Le plateau a une taille de 3 * 4 (soit 3 de largeur (coordonnée X) et 4 de hauteur (coordonnée Y))
 	//La première case du plateau, soit la coordonnée (0;0) avec x = 0 et y = 0, se situe en haut à gauche du plateau.
 	//Post: Crée le plateau avec deux joueurs créés avec comme nom les String données en paramètre 
-	init(nomJ1: String, nomJ2: String) throws
+	init(nomJ1: String, nomJ2: String)
 
 	//Joueur1 : Plateau -> Joueur
 	//Renvoie J1
