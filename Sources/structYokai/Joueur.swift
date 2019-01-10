@@ -18,9 +18,9 @@ public struct Joueur : JoueurProtocol{
 	//Post : La MainJoueur doit être remplie des Pieces initiales en fonction du Int (1 ou 2)
 	//Post : Joueur initialisé pour le début de la partie (2 cas différents en fonction du Int)
 	init(Num: Int, NomJ: String) throws {
-		num = Num
-		nom = NomJ
-		if (num != 1 && num != 2) {
+		self.num = Num
+		self.nom = NomJ
+		if (Num != 1 && Num != 2) {
 			print("erreur 1")
 			throw JoueurError.MauvaisNum
 		}
