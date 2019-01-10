@@ -20,7 +20,7 @@ public struct Joueur : JoueurProtocol{
 	init(Num: Int, NomJ: String) throws {
 		num = Num
 		nom = NomJ
-		if (Num != 1 || Num != 2) {
+		if (num != 1 && num != 2) {
 			print("erreur 1")
 			throw JoueurError.MauvaisNum
 		}
