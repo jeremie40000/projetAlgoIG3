@@ -1,5 +1,6 @@
 enum PlateauError : Error {
 	case caseIncorrecte
+	case caseIncorrecte2
 	case argumentInvalide
 }
 
@@ -47,7 +48,7 @@ public struct Plateau : PlateauProtocol{
 			}
 		}
 		}catch{
-			throw PlateauError.caseIncorrecte
+			throw PlateauError.caseIncorrecte2
 		}
 		
 		
