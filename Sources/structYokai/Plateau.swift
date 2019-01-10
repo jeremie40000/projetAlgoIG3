@@ -14,7 +14,7 @@ public struct Plateau : PlateauProtocol{
 	//Le plateau a une taille de 3 * 4 (soit 3 de largeur (coordonnée X) et 4 de hauteur (coordonnée Y))
 	//La première case du plateau, soit la coordonnée (0;0) avec x = 0 et y = 0, se situe en haut à gauche du plateau.
 	//Post: Crée le plateau avec deux joueurs créés avec comme nom les String données en paramètre 
-	init(nomJ1: String, nomJ2: String) throws{
+	public init(nomJ1: String, nomJ2: String) throws{
 		do{
 			j1 = try Joueur(Num : 1, NomJ : nomJ1)
 			j2 = try Joueur(Num : 2, NomJ : nomJ2)	
