@@ -20,11 +20,11 @@ public struct Joueur : JoueurProtocol{
 	init(Num: Int, NomJ: String) throws {
 		num = Num
 		nom = NomJ
-		guard (Num != 1 && Num != 2) else {
+		if (Num != 1 || Num != 2) {
 			throw JoueurError.MauvaisNum
 		}
 		res = Reserve()
-		guard !res.ReserveEstVide() else {
+		if !res.ReserveEstVide() {
 			throw JoueurError.ReserveNonVide
 		}
 		mainJ = MainJoueur()
