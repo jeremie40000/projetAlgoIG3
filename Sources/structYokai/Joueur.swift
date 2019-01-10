@@ -59,7 +59,7 @@ public struct Joueur : JoueurProtocol{
 	//Reserve : Joueur -> Reserve
 	//Renvoie la Reserve d'un Joueur
 	//Post : Reserve
-	func getReserve() -> Reserve {
+	public func getReserve() -> Reserve {
 		return res
 
 	}
@@ -67,7 +67,7 @@ public struct Joueur : JoueurProtocol{
 	//MainJoueur : Joueur -> MainJoueur
 	//Renvoie la MainJoueur d'un Joueur
 	//Post : MainJoueur
-	func getMainJoueur() -> MainJoueur {
+	public func getMainJoueur() -> MainJoueur {
 		return mainJ
 
 	}
@@ -75,7 +75,7 @@ public struct Joueur : JoueurProtocol{
 	//NomJoueur : Joueur -> String
 	//Renvoie le Nom d'un Joueur
 	//Post : String
-	func NomJoueur() -> String {
+	public func NomJoueur() -> String {
 		return nom
 
 	}
@@ -84,7 +84,7 @@ public struct Joueur : JoueurProtocol{
 	//Modifie Un Joueur, change sa MainJoueur et sa Reserve 
 	//Post : Joueur avec sa MainJoueur et sa Reserve modifié
 	@discardableResult
-	mutating func ModifJoueur(R: Reserve, M: MainJoueur) -> Joueur {
+	public mutating func ModifJoueur(R: Reserve, M: MainJoueur) -> Joueur {
 		self.res = R
 		self.mainJ = M
 		return self

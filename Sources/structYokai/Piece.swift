@@ -60,32 +60,32 @@ public struct Piece : PieceProtocol  {
 
 	//NomPiece : Piece -> String
 	//Post : Renvoie le nom de la Piece 
-    func NomPiece() -> String{
+    public func NomPiece() -> String{
         return nomP
     }
 
 	//CoordonneeX : Piece -> (Int | Vide)
 	//Post : Renvoie le coordonnée X si la Piece est sur le plateau, Vide si il est dans la Reserve
-    func CoordonneeX() -> Int?{
+    public func CoordonneeX() -> Int?{
         return x
     }
 
 	//CoordonneeY : Piece -> (Int | Vide)
 	//Post : Renvoie le coordonnée Y si la Piece est sur le plateau, Vide si il est dans la Reserve
-    func CoordonneeY() -> Int?{
+    public func CoordonneeY() -> Int?{
         return y
     }
 
 	//DeplacmentsPiece : Piece -> Deplacements
 	//Post : Renvoie les Deplacements de la Piece
-    func DeplacementsPiece() -> Deplacements{
+    public func DeplacementsPiece() -> Deplacements{
         return dep
     }
 
 	//DeplacementPossible : Piece x Int x Int -> Bool
 	//Pre : Les Int sont des coordonnées x,y existant
 	//Post : Renvoie True si le déplacment est possible (en fonction de Deplacements), False sinon
-    func DeplacementPossible(x: Int, y: Int) -> Bool{
+    public func DeplacementPossible(x: Int, y: Int) -> Bool{
         var tab = dep.getTab()
         if(self.x == nil || self.y == nil){
             return false
@@ -134,7 +134,7 @@ public struct Piece : PieceProtocol  {
 	//Pre : Le Int correspondent bien a une coordonnée X du jeu ou à Vide (Reserve)
 	//Post : La Piece avec sa nouvelle coordonnée si c'est un Int, avec Vide pour x sinon
 	@discardableResult
-    mutating func ChangerCoordonneeX(x: Int?) -> Piece {
+    public mutating func ChangerCoordonneeX(x: Int?) -> Piece {
         self.x = x
         return self
     }
@@ -144,7 +144,7 @@ public struct Piece : PieceProtocol  {
 	//Pre : Le Int correspondent bien a une coordonnée Y du jeu ou à Vide (Reserve)
 	//Post : La Piece avec sa nouvelle coordonnée si c'est un Int, avec Vide pour y sinon
 	@discardableResult
-    mutating func ChangerCoordonneeY(y: Int?) -> Piece {
+    public mutating func ChangerCoordonneeY(y: Int?) -> Piece {
         self.y = y
         return self
     }
@@ -156,7 +156,7 @@ public struct Piece : PieceProtocol  {
 	//Post : La Piece avec ses nouvelles coordonnées si possible, avec Vide pour x et y si elle
 		//va dans la reserve, rien ne change si les coordonnées ne sont pas possible
 	@discardableResult
-    mutating func ChangerCoordonnees(x: Int?, y: Int?) -> Piece {
+    public mutating func ChangerCoordonnees(x: Int?, y: Int?) -> Piece {
         self.x = x
         self.y = y
         return self
@@ -167,7 +167,7 @@ public struct Piece : PieceProtocol  {
 	//Pre : La piece est un Kodama (Kodama1/Kodama2/SamuraiKodama1/SamuraiKodama2)
 	//Post : Transforme les Kodama en SamuraiKodama ou inversement
 	@discardableResult
-    mutating func ChangerNom(nom: String) -> Piece {
+    public mutating func ChangerNom(nom: String) -> Piece {
         nomP = nom
         return self
     }
@@ -177,7 +177,7 @@ public struct Piece : PieceProtocol  {
 	//Pre : La Piece doit être un Kodama ou un SamouraiKodama
 	//Post : La Piece transformé, changement du Nom et des Deplacements de la Piece
 	@discardableResult
-    mutating func TransformationKodama() -> Piece {
+    public mutating func TransformationKodama() -> Piece {
         ChangerNom(nom : "SamouraiKodama")
         do{
             try dep.ChangerDeplacements()
@@ -194,7 +194,7 @@ public struct Piece : PieceProtocol  {
 	//Pre : La Piece doit être un Kodama
 	//Post : Renvoie la Piece avec ses nouveaux Deplacements
 	@discardableResult
-    mutating func ModifPiece(D: Deplacements) -> Piece{
+    public mutating func ModifPiece(D: Deplacements) -> Piece{
         dep = D
         return self
     }
