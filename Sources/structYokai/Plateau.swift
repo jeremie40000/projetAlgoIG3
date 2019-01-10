@@ -55,13 +55,13 @@ public struct Plateau : PlateauProtocol{
 
 	//Joueur1 : Plateau -> Joueur
 	//Renvoie J1
-	func Joueur1() -> Joueur {
+	public func Joueur1() -> Joueur {
 		return j1;
 	}
 
 	//Joueur2 : Plateau -> Joueur
 	//Renvoie J2
-	func Joueur2() -> Joueur {
+	public func Joueur2() -> Joueur {
 		return j2;
 	}
 
@@ -70,7 +70,7 @@ public struct Plateau : PlateauProtocol{
 	//Pre : Int x Int correspond à une case du Plateau
     //Pre : Les coordonées doivent être positive
 	//Post : Renvoie true si la case est vide false sinon
-	func CaseVide(x: Int, y: Int) throws -> Bool {
+	public func CaseVide(x: Int, y: Int) throws -> Bool {
 		if(x<0 || y<0 || x>2 || y>3){
 			throw PlateauError.caseIncorrecte
 		}
@@ -83,7 +83,7 @@ public struct Plateau : PlateauProtocol{
 	//Dit si une case du Plateau est occupé par une Piece ennemie
 	//Pre : Int x Int correspond à une case du Plateau
 	//Post : Renvoie true si la case est occupé par une Piece ennemie false sinon
-	func CaseEnnemie(JCourant : Joueur, x: Int, y: Int) throws -> Bool {
+	public func CaseEnnemie(JCourant : Joueur, x: Int, y: Int) throws -> Bool {
 		if(x<0 || y<0 || x>2 || y>3){
 			throw PlateauError.caseIncorrecte
 		}
@@ -112,7 +112,7 @@ public struct Plateau : PlateauProtocol{
 	//Pre : Int x Int correspond à une case du Plateau
 	//Pre : La case données par les Int n'est pas vide
 	//Post : Renvoie la Piece qui est sur la Case des coordonées rentré 
-	func RecupererPiecePlateau(x: Int, y: Int) throws -> Piece{
+	public func RecupererPiecePlateau(x: Int, y: Int) throws -> Piece{
 		var r : Piece
 		if(tab[y][x] != nil && x>=0 && y>=0 && x<3 && y<4){
 			if let p = tab[y][x]{
@@ -132,7 +132,7 @@ public struct Plateau : PlateauProtocol{
 	//Modifie le Plateau avec les 2 joueurs rentré en paramètre
 	//Pre : Les 2 Joueurs sont bien définit, un Joueurs 1 et un Joueurs 2
 	//Post : Retourne Le Plateau de Jeu modifié avec les Joueur J1 et J2
-	mutating func ModifPlateau(J1: Joueur, J2: Joueur) throws -> Plateau {
+	public mutating func ModifPlateau(J1: Joueur, J2: Joueur) throws -> Plateau {
 		if(J1.NomJoueur() == J2.NomJoueur() || J1 == nil || J2 == nil){
 			throw PlateauError.argumentInvalide
 		}
@@ -176,7 +176,7 @@ public struct Plateau : PlateauProtocol{
 	//Dit si une Piece est dans la Zonne de Promotion de l'adversaire
 	//Pre : La Piece est dans la Main d'un des Joueur
 	//Post : True si la piece est dans la zone de Promotion, false sinon
-	func ZoneDePromotion(piece: Piece) throws -> Bool {
+	public func ZoneDePromotion(piece: Piece) throws -> Bool {
 		var appartient : Int = 0
 
 		guard let y = piece.CoordonneeY() else {

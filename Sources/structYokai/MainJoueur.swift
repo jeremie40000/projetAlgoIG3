@@ -26,7 +26,7 @@ public struct MainJoueur : MainJoueurProtocol{
     //Renvoie la pièce de la Main du joueur qui a le même nom que celui passé en paramètre
     //Post : Renvoie la pièce de la main du joueur ayant le même nom que celui passé en paramètre,
     //Post : Si elle n'existe pas dans la main du joueur alors renvoie Vide
-    func RecupererPieceMainJoueur(Nom: String) -> Piece?{
+    public func RecupererPieceMainJoueur(Nom: String) -> Piece?{
         var r : Piece?
         r = nil
         for i in 0..<tab.count {
@@ -41,7 +41,7 @@ public struct MainJoueur : MainJoueurProtocol{
     //Pre : La pièce est bien définit et se situait précedemment dans la réserve du même joueur
     //Post : Renvoie la main du joueur avec la pièce ajoutée
     @discardableResult
-    mutating func AjouterMainJoueur(P: Piece) throws -> MainJoueur {
+    public mutating func AjouterMainJoueur(P: Piece) throws -> MainJoueur {
         tab.append(P)
         return self
     }
@@ -51,7 +51,7 @@ public struct MainJoueur : MainJoueurProtocol{
     //Pre : MainJoueur n'est pas vide
     //Post : Renvoie la main du joueur avec la pièce enlever
     @discardableResult
-    mutating func EnleverMainJoueur(P: Piece) throws -> MainJoueur{
+    public mutating func EnleverMainJoueur(P: Piece) throws -> MainJoueur{
         var presente : Bool = false
         var index = 0
         for i in 0..<tab.count {
@@ -75,7 +75,7 @@ public struct MainJoueur : MainJoueurProtocol{
     //Pre : La pièce se situe dans la Main du joueur
     //Post : Renvoie la main du joueur avec la pièce donnée en paramètre qui remplace celle du même nom situé précedemment dans la main du joueur
     @discardableResult
-    mutating func ModifMainJoueur(P: Piece) throws -> MainJoueur {
+    public mutating func ModifMainJoueur(P: Piece) throws -> MainJoueur {
         var presente : Bool = false
         var index = 0
         for i in 0..<tab.count {
@@ -97,7 +97,7 @@ public struct MainJoueur : MainJoueurProtocol{
     
     //makeItMainJoueur : MainJoueur -> ItMainJoueur
     //Créer un itérateur qui parcours la collection MainJoueur
-    func makeItMainJoueur() -> ItMainJoueur {
+    public func makeItMainJoueur() -> ItMainJoueur {
         return ItMainJoueur(mainJ : self)
     }
     public func makeIterator()-> ItMainJoueur{
