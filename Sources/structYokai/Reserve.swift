@@ -96,7 +96,7 @@ public struct Reserve : ReserveProtocol{
     
 }
 
-struct ItReserve : ItReserveProtocol{
+public struct ItReserve : ItReserveProtocol{
 
     var res : Reserve
     var index : Int
@@ -105,7 +105,7 @@ struct ItReserve : ItReserveProtocol{
             index = -1
         }
 
-    mutating func next() -> Piece?{
+    public mutating func next() -> Piece?{
         index += 1
         if index >= res.tabRes.count {
             return nil

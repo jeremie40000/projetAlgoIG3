@@ -105,7 +105,7 @@ public struct MainJoueur : MainJoueurProtocol{
     }
 }
 
-struct ItMainJoueur : ItMainJoueurProtocol {
+public struct ItMainJoueur : ItMainJoueurProtocol {
     
     var main : MainJoueur
     var index : Int
@@ -115,7 +115,7 @@ struct ItMainJoueur : ItMainJoueurProtocol {
         index = -1
     }
     
-    mutating func next()->Piece?{
+    public mutating func next()->Piece?{
         index += 1
         if(index >= main.tab.count){
             return nil
