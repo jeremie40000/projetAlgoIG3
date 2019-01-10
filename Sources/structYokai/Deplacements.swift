@@ -24,7 +24,7 @@ public struct Deplacements : DeplacementsProtocol {
     //Pre : Deplacements Vide
     //Post : Deplacements correspondent au Koropokkuru
     @discardableResult
-    mutating func InitialiserKoropokkuru() throws -> Deplacements {
+    public mutating func InitialiserKoropokkuru() throws -> Deplacements {
         for i in 0..<8 {
             tab[i] = true
         }
@@ -36,7 +36,7 @@ public struct Deplacements : DeplacementsProtocol {
     //Pre : Deplacements Vide
     //Post : Deplacements correspondent au Kitsuneoropokkuru
     @discardableResult
-    mutating func InitialiserKitsune() throws -> Deplacements {
+    public mutating func InitialiserKitsune() throws -> Deplacements {
         tab = [Bool](repeating: false, count: 8)
         tab[0] = true
         tab[2] = true
@@ -49,7 +49,7 @@ public struct Deplacements : DeplacementsProtocol {
     //Pre : Deplacements Vide
     //Post : Deplacements correspondent au Tanuki
     @discardableResult
-    mutating func InitialiserTanuki() throws -> Deplacements {
+    public mutating func InitialiserTanuki() throws -> Deplacements {
         tab = [Bool](repeating: false, count: 8)
         tab[1] = true
         tab[3] = true
@@ -62,7 +62,7 @@ public struct Deplacements : DeplacementsProtocol {
     //Pre : Deplacements Vide
     //Post : Deplacements correspondent au Kodama
     @discardableResult
-    mutating func InitialiserKodama() throws -> Deplacements{
+    public mutating func InitialiserKodama() throws -> Deplacements{
         tab = [Bool](repeating: false, count: 8)
         tab[6] = true
         return self
@@ -73,7 +73,7 @@ public struct Deplacements : DeplacementsProtocol {
     //Pre : Les Deplacements correspondent à ceux d'un kodama ou SamouraiKodama
     //Post : Renvoie les nouveaux Deplacements
     @discardableResult
-    mutating func ChangerDeplacements() throws -> Deplacements {
+    public mutating func ChangerDeplacements() throws -> Deplacements {
         tab = [Bool](repeating: true, count: 8)
         tab[0] = false
         tab[2] = false
@@ -85,7 +85,7 @@ public struct Deplacements : DeplacementsProtocol {
     //Pre : Le Deplacements correspondent à un Kodama
     //Post : Deplacements d'un Kodama dans l'autre sens qu'initialement
     @discardableResult
-    mutating func InverserDeplacementsKodama() throws -> Deplacements {
+    public mutating func InverserDeplacementsKodama() throws -> Deplacements {
         if(tab[6]){
             tab[6]=false
             tab[1]=true
@@ -97,7 +97,7 @@ public struct Deplacements : DeplacementsProtocol {
         return self
     }
     
-    func getTab() -> [Bool]{
+    public func getTab() -> [Bool]{
         return tab
     }
 }
