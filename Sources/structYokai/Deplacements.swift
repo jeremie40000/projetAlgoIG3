@@ -74,10 +74,21 @@ public struct Deplacements : DeplacementsProtocol {
     //Post : Renvoie les nouveaux Deplacements
     @discardableResult
     public mutating func ChangerDeplacements() throws -> Deplacements {
-        tab = [Bool](repeating: true, count: 8)
-        tab[0] = false
-        tab[2] = false
+        if tab[2] || tab[5]{
+            tab = [Bool](repeating: false, count: 8)
+            if tab[2]{
+                tab[1]=true
+            }
+            else{
+                tab[6]=true
+            }
+        }else{
+            tab = [Bool](repeating: true, count: 8)
+            tab[0] = false
+            tab[2] = false
+        }
         return self
+
     }
     
     //InverserDeplacementKodama : Deplacements -> Deplacements

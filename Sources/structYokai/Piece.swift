@@ -180,8 +180,15 @@ public struct Piece : PieceProtocol  {
     public mutating func TransformationKodama() -> Piece {
         if(nomP=="Kodama1"){
             ChangerNom(nom : "SamouraiKodama1")
-        }else{
+        }
+        else if(nomP=="Kodama2"){
             ChangerNom(nom : "SamouraiKodama2")
+        }
+        }else if(nomP=="SamouraiKodama"){
+            ChangerNom(nom : "Kodama1")
+        }
+        }else if(nomP=="SamouraiKodama2"){
+            ChangerNom(nom : "Kodama2")
         }
         
         do{
