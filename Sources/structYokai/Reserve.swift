@@ -3,14 +3,12 @@
 public struct Reserve : ReserveProtocol{
     //associatedtype IteratorReserve : IteratorProtocol where IteratorReserve.Element == Piece
     
-    var tabRes = [Piece?](repeating: nil, count: 6) //tableau initialise a vide de taille 6 pour les 6 piece potentiellement capturable
+    var tabRes :  [Piece] //tableau initialise a vide de taille 6 pour les 6 piece potentiellement capturable
     
     //init : -> Reserve
     //création d'une Reserve, initialisé à Vide
     init(){
-         
-        
-
+         tabRes = []
     }
     
     //AjouterReserve : Reserve x Piece -> Reserve 
@@ -19,11 +17,7 @@ public struct Reserve : ReserveProtocol{
     //Post : La Reserve avec la Pièce donné en paramètre si la précondition est repecté, sinon rien n'est changé. 
     @discardableResult
     public mutating func AjouterReserve(P: Piece) throws -> Reserve {
-        for i in 0..<tabRes.count {
-            if tabRes[i] == nil{
-                tabRes[i] = P
-            }
-        }
+        tabRes.append(P)
         return self
 
     }
@@ -35,15 +29,20 @@ public struct Reserve : ReserveProtocol{
     //Post : La Reserve sans la Piece passé en paramètre si les preconditions sont respectés, sinon rien n'est changé.
     @discardableResult
     public mutating func EnleverReserve(P: Piece) throws -> Reserve {
-        for i in 0..<tabRes.count{
-            var p : Piece
-            if let myP = tabRes[i]{
-                p = myP
-                if p.NomPiece() == P.NomPiece() {
-                tabRes[i] = nil
+        var presente : Bool = false
+        var index = 0
+        for i in 0..<tabRes.count {
+            if(tabRes[i].NomPiece() == P.NomPiece()){
+                presente = true
+                index = i
             }
-            }
-            
+        }
+        
+        if(!presente){
+            throw MainJoueurError.invalidArgument
+        }
+        else{
+            tabRes.remove(at : index)
         }
         return self
 
@@ -52,13 +51,7 @@ public struct Reserve : ReserveProtocol{
     //ReserveEstVide : Reserve  -> Bool
     //Post : Retourne True si la Reserve est Vide, False sinon
     public func ReserveEstVide() -> Bool{
-        var b : Bool = true
-        for i in 0..<tabRes.count {
-            if tabRes[i] != nil {
-                b = false
-            }
-        }
-        return b
+        return tabRes.count == 0
 
     }
     
@@ -89,7 +82,6 @@ public struct Reserve : ReserveProtocol{
     }
 
     public func makeIterator() -> ItReserve {
-        
         return makeItReserve()
 
     }
@@ -103,7 +95,7 @@ public struct ItReserve : ItReserveProtocol{
     init(r : Reserve){
             res = r
             index = -1
-        }
+    }
 
     public mutating func next() -> Piece?{
         index += 1

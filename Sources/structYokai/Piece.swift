@@ -19,35 +19,35 @@ public struct Piece : PieceProtocol  {
 	//Post : Les coordonnées doivent être initialisés en fonction du nom de la Pièce
 	//Post : La Piece prête pour le jeu (cas initial)
     init(nom: String, D: Deplacements) throws {
-        if(nom == "kodama1"){
+        if(nom == "Kodama1"){
             x = 1
             y = 2
         }
-        else if (nom == "kodama2"){
+        else if (nom == "Kodama2"){
             x = 1
             y = 1
         }
-        else if (nom == "kitsune1"){
+        else if (nom == "Kitsune1"){
             x = 0
             y = 3
         }
-        else if (nom == "kitsune2"){
+        else if (nom == "Kitsune2"){
             x = 2
             y = 0
         }
-        else if (nom == "tanuki1"){
+        else if (nom == "Tanuki1"){
             x = 2
             y = 3
         }
-        else if (nom == "tanuki2"){
+        else if (nom == "Tanuki2"){
             x = 0
             y = 0
         }
-        else if (nom == "koropokkuru1"){
+        else if (nom == "Koropokkuru1"){
             x = 1
             y = 3
         }
-        else if (nom == "koropokkuru2"){
+        else if (nom == "Koropokkuru2"){
             x = 1
             y = 0
         }
