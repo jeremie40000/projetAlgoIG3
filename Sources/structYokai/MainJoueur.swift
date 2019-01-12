@@ -79,7 +79,7 @@ public struct MainJoueur : MainJoueurProtocol{
         var presente : Bool = false
         var index = 0
         for i in 0..<tab.count {
-            if((tab[i].NomPiece() == P.NomPiece()) || ((P.NomPiece()=="SamouraiKodama1" || P.NomPiece()=="SamouraiKodama2") && (tab[i].NomPiece()=="Kodama1" || tab[i].NomPiece()=="Kodama2")){
+            if((tab[i].NomPiece() == P.NomPiece()) || ((P.NomPiece()=="SamouraiKodama1" || P.NomPiece()=="SamouraiKodama2") && (tab[i].NomPiece()=="Kodama1" || tab[i].NomPiece()=="Kodama2"))){
                 presente = true
                 index = i
             }
