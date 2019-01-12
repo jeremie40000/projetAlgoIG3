@@ -77,10 +77,10 @@ public struct Deplacements : DeplacementsProtocol {
         if tab[2] || tab[5]{
             tab = [Bool](repeating: false, count: 8)
             if tab[2]{
-                tab[1]=true
+                tab[6]=true
             }
             else{
-                tab[6]=true
+                tab[1]=true
             }
         }else{
             tab = [Bool](repeating: true, count: 8)
