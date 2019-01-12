@@ -61,11 +61,8 @@ public struct Reserve : ReserveProtocol{
     public func RecupererPieceReserve(Nom: String) -> Piece? {
         var r : Piece? = nil
         for i in 0..<tabRes.count {
-              var p : Piece
-            if let myP = tabRes[i]{
-                p = myP
-                if Nom == p.NomPiece(){
-                r = p
+                if Nom == tabRes[i].NomPiece(){
+                    r = tabRes[i]
                 }
             }
             
