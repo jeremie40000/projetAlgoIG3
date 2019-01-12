@@ -51,11 +51,11 @@ public struct Joueur : JoueurProtocol{
 			try mainJ.AjouterMainJoueur(P : koropokkuru)
 			try mainJ.AjouterMainJoueur(P : kitsune)
 			try mainJ.AjouterMainJoueur(P : tanuki)
-			}catch{
+		}catch{
 
-			}
-		
 		}
+		
+	}
 
 
 	//Reserve : Joueur -> Reserve

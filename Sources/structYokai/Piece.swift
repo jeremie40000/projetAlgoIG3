@@ -21,35 +21,35 @@ public struct Piece : PieceProtocol  {
     init(nom: String, D: Deplacements) throws {
         if(nom == "kodama1"){
             x = 1
-            y = 1
+            y = 2
         }
         else if (nom == "kodama2"){
             x = 1
-            y = 2
+            y = 1
         }
         else if (nom == "kitsune1"){
             x = 0
-            y = 0
+            y = 3
         }
         else if (nom == "kitsune2"){
             x = 2
-            y = 3
+            y = 0
         }
         else if (nom == "tanuki1"){
             x = 2
-            y = 0
+            y = 3
         }
         else if (nom == "tanuki2"){
             x = 0
-            y = 3
+            y = 0
         }
         else if (nom == "koropokkuru1"){
             x = 1
-            y = 0
+            y = 3
         }
         else if (nom == "koropokkuru2"){
             x = 1
-            y = 3
+            y = 0
         }
         else{
             throw PieceError.invalidArgument
