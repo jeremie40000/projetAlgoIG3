@@ -41,7 +41,7 @@ public struct Joueur : JoueurProtocol{
 		var deplacementTanuki : Deplacements = Deplacements()
 		deplacementTanuki = try! deplacementTanuki.InitialiserTanuki()
 
-		let kodoma : Piece = try! Piece(nom : "Kodama\(num)", D : deplacementKodama)
+		let kodama : Piece = try! Piece(nom : "Kodama\(num)", D : deplacementKodama)
 		let koropokkuru : Piece = try! Piece(nom : "Koropokkuru\(num)", D : deplacementKoropokkuru)
 		let kitsune : Piece = try! Piece(nom : "Kitsune\(num)", D : deplacementKitsune)
 		let tanuki : Piece = try! Piece(nom : "Tanuki\(num)", D : deplacementTanuki)
@@ -51,7 +51,7 @@ public struct Joueur : JoueurProtocol{
 		}
 
 		do{
-			try mainJ.AjouterMainJoueur(P : kodoma)
+			try mainJ.AjouterMainJoueur(P : kodama)
 			try mainJ.AjouterMainJoueur(P : koropokkuru)
 			try mainJ.AjouterMainJoueur(P : kitsune)
 			try mainJ.AjouterMainJoueur(P : tanuki)
