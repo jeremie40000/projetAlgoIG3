@@ -64,11 +64,8 @@ public struct Reserve : ReserveProtocol{
                 if Nom == tabRes[i].NomPiece(){
                     r = tabRes[i]
                 }
-            }
-            
         }
-        return r
-
+            return r
     }
     
     //makeItReserve : Reserve -> ItReserve
