@@ -184,7 +184,6 @@ public struct Piece : PieceProtocol  {
         }catch{
 
         }
-        
         return self
     }
 

@@ -46,6 +46,10 @@ public struct Joueur : JoueurProtocol{
 		let kitsune : Piece = try! Piece(nom : "Kitsune\(num)", D : deplacementKitsune)
 		let tanuki : Piece = try! Piece(nom : "Tanuki\(num)", D : deplacementTanuki)
 
+		if(Num==1){
+			do{try kodama.InverserDeplacementsKodama()}catch{}
+		}
+
 		do{
 			try mainJ.AjouterMainJoueur(P : kodoma)
 			try mainJ.AjouterMainJoueur(P : koropokkuru)
