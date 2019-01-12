@@ -194,7 +194,7 @@ public struct Plateau : PlateauProtocol{
 			var itJ2 = j2.getMainJoueur().makeItMainJoueur()
 			while let p = itJ2.next(){
 				if (p.NomPiece() == piece.NomPiece()){
-				appartient = 2
+					appartient = 2
 				}
 			}
 		}
@@ -202,10 +202,10 @@ public struct Plateau : PlateauProtocol{
 			throw PlateauError.argumentInvalide
 		}
 		else if appartient == 1 {
-			return y == 3
+			return y == 0
 		}
 		else {
-			return y == 0
+			return y == 3
 		}
 
 	}
