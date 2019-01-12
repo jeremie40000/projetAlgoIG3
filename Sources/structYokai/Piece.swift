@@ -183,7 +183,7 @@ public struct Piece : PieceProtocol  {
         }
         else if(nomP=="Kodama2"){
             ChangerNom(nom : "SamuraiKodama2")
-        }else if(nomP=="SamuraiKodama"){
+        }else if(nomP=="SamuraiKodama1"){
             ChangerNom(nom : "Kodama1")
         }
         else if(nomP=="SamuraiKodama2"){
