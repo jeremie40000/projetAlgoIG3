@@ -178,7 +178,12 @@ public struct Piece : PieceProtocol  {
 	//Post : La Piece transformé, changement du Nom et des Deplacements de la Piece
 	@discardableResult
     public mutating func TransformationKodama() -> Piece {
-        ChangerNom(nom : "SamouraiKodama")
+        if(nomP=="Kodama1"){
+            ChangerNom(nom : "SamouraiKodama1")
+        }else{
+            ChangerNom(nom : "SamouraiKodama2")
+        }
+        
         do{
             try dep.ChangerDeplacements()
         }catch{
