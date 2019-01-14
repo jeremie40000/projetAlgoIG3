@@ -5,13 +5,17 @@
 //  Created by Jeremie DUMONT on 19/12/2018.
 //
 //
-
 import Foundation
 
+enum DeplacementsError : Error {
+    case ErrorInit
+    
+}
 
 public struct Deplacements : DeplacementsProtocol {
     
     var tab = [Bool](repeating: false, count: 8)
+    var dejaInit = false
     
     
     //init : -> Deplacements
@@ -25,9 +29,13 @@ public struct Deplacements : DeplacementsProtocol {
     //Post : Deplacements correspondent au Koropokkuru
     @discardableResult
     public mutating func InitialiserKoropokkuru() throws -> Deplacements {
+        if dejaInit{
+            throw DeplacementsError.ErrorInit
+        }
         for i in 0..<8 {
             tab[i] = true
         }
+        dejaInit=true
         return self
     }
     
@@ -37,11 +45,15 @@ public struct Deplacements : DeplacementsProtocol {
     //Post : Deplacements correspondent au Kitsuneoropokkuru
     @discardableResult
     public mutating func InitialiserKitsune() throws -> Deplacements {
+        if dejaInit{
+            throw DeplacementsError.ErrorInit
+        }
         tab = [Bool](repeating: false, count: 8)
         tab[0] = true
         tab[2] = true
         tab[5] = true
         tab[7] = true
+        dejaInit=true
         return self
     }
     
@@ -50,11 +62,15 @@ public struct Deplacements : DeplacementsProtocol {
     //Post : Deplacements correspondent au Tanuki
     @discardableResult
     public mutating func InitialiserTanuki() throws -> Deplacements {
+        if dejaInit{
+            throw DeplacementsError.ErrorInit
+        }
         tab = [Bool](repeating: false, count: 8)
         tab[1] = true
         tab[3] = true
         tab[4] = true
         tab[6] = true
+        dejaInit=true
         return self
     }
     
@@ -63,8 +79,12 @@ public struct Deplacements : DeplacementsProtocol {
     //Post : Deplacements correspondent au Kodama
     @discardableResult
     public mutating func InitialiserKodama() throws -> Deplacements{
+        if dejaInit{
+            throw DeplacementsError.ErrorInit
+        }
         tab = [Bool](repeating: false, count: 8)
         tab[6] = true
+        dejaInit=true
         return self
     }
     
