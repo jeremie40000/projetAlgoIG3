@@ -17,7 +17,7 @@ public struct Joueur : JoueurProtocol{
 	//Post : Creer la Reserve qui doit être vide
 	//Post : La MainJoueur doit être remplie des Pieces initiales en fonction du Int (1 ou 2)
 	//Post : Joueur initialisé pour le début de la partie (2 cas différents en fonction du Int)
-	init(Num: Int, NomJ: String) throws {
+	public init(Num: Int, NomJ: String) throws {
 		self.num = Num
 		self.nom = NomJ
 		if (Num != 1 && Num != 2) {

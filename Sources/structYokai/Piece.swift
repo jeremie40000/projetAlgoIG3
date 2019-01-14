@@ -18,7 +18,7 @@ public struct Piece : PieceProtocol  {
 	//(en générale pas dans un cas précis)
 	//Post : Les coordonnées doivent être initialisés en fonction du nom de la Pièce
 	//Post : La Piece prête pour le jeu (cas initial)
-    init(nom: String, D: Deplacements) throws {
+    public init(nom: String, D: Deplacements) throws {
         if(nom == "Kodama1"){
             x = 1
             y = 2

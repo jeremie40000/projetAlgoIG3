@@ -16,7 +16,7 @@ public struct Deplacements : DeplacementsProtocol {
     
     //init : -> Deplacements
     //Post : Renvoie Deplacements à Vide
-    init(){
+    public init(){
         
     }
     
