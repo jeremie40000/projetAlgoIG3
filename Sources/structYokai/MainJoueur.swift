@@ -18,7 +18,7 @@ public struct MainJoueur : MainJoueurProtocol{
     //init: -> MainJoueur
     //Creer une main vide
     //Post : La main du joueur est créée et vide
-    init(){
+    public init(){
         tab = []
     }
     
