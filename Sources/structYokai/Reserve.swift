@@ -1,3 +1,7 @@
+enum ReserveError : Error{
+    case memePiece
+}
+
 //Réserve est une collection de Pièces
 //Cette collection peut être parcourue par 1 itérateurs.
 public struct Reserve : ReserveProtocol{
@@ -17,6 +21,11 @@ public struct Reserve : ReserveProtocol{
     //Post : La Reserve avec la Pièce donné en paramètre si la précondition est repecté, sinon rien n'est changé. 
     @discardableResult
     public mutating func AjouterReserve(P: Piece) throws -> Reserve {
+        for v in tabRes{
+            if P.NomPiece()==v.NomPiece(){
+                throw ReserveError.memePiece
+            }
+        }
         tabRes.append(P)
         return self
 

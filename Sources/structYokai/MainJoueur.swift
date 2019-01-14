@@ -18,7 +18,7 @@ public struct MainJoueur : MainJoueurProtocol{
     //init: -> MainJoueur
     //Creer une main vide
     //Post : La main du joueur est créée et vide
-    public init(){
+    init(){
         tab = []
     }
     
@@ -42,6 +42,11 @@ public struct MainJoueur : MainJoueurProtocol{
     //Post : Renvoie la main du joueur avec la pièce ajoutée
     @discardableResult
     public mutating func AjouterMainJoueur(P: Piece) throws -> MainJoueur {
+        for v in tab{
+            if P.NomPiece()==v.NomPiece(){
+                throw MainJoueurError.invalidArgument
+            }
+        }
         tab.append(P)
         return self
     }
