@@ -7,7 +7,7 @@ public struct Reserve : ReserveProtocol{
     
     //init : -> Reserve
     //création d'une Reserve, initialisé à Vide
-    init(){
+    public init(){
          tabRes = []
     }
     
